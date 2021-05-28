@@ -1,5 +1,7 @@
 module.exports = {
     commands: ['start', 'help', 'info'],
+    permissions: 'ADMINISTRATOR',
+    permissionError: 'This command is restricted due to us being in the development phase.',
     minArgs: 0,
     maxArgs: 0,
     callback: (message, arguments, text) => {

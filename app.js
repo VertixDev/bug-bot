@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const Discord = require('discord.js')
+const Discord = require("discord.js")
 const config = require('./config.json');
 const mongoose = require('mongoose') 
 const chalk = require('chalk')
@@ -10,10 +10,29 @@ const client = new Discord.Client({
     restTimeOffset: 0,
     restWsBridgetimeout: 100,
     disableEveryone: true,
+    intents: Discord.Intents.NON_PRIVILEGED,
     partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 });
 
+const disbut = require('discord-buttons')(client);
+
+
 client.mongoose = require('./registries/mongoose.js');
+
+// client.on("message", (message) => {
+//   if(message.content === "!balls") {
+
+//     let button = new disbut.MessageButton()
+//     .setStyle('url') //default: blurple
+//     .setLabel('You have small dick and balls!') //default: NO_LABEL_PROVIDED
+//     .setID('bb')
+//     .setURL("https://pornhub.com") //note: if you use the style "url" you must provide url using .setURL('https://example.com') 
+
+//     message.channel.send("The below button is very very true", button)
+
+//   }
+// })
+
 
 client.on('ready', async () => {
     console.log('Bot online')
